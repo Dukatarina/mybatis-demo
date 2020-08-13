@@ -10,6 +10,8 @@ import java.util.List;
 public interface EmployeeMapper {
     Employee selectOne(String id);
 
+    Employee selectWithParam(String name, String nickName);
+
     @Select("select * from mybatis_employee")
     List<Employee> selectList();
 

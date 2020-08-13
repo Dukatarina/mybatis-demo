@@ -8,5 +8,5 @@ public class Employee {
     private String name;
     private String email;
     private Integer age;
-    private String nikeName;
+    private String nickName;
 }

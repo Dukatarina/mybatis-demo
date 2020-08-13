@@ -14,4 +14,6 @@ public interface EmployeeServer {
     Integer insertOne(Employee employee);
 
     Boolean deleteOne(String id);
+
+    Employee selectOne(String name, String nickname);
 }

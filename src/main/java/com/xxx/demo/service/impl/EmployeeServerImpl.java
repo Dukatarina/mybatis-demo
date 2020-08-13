@@ -39,4 +39,9 @@ public class EmployeeServerImpl implements EmployeeServer {
     public Boolean deleteOne(String id) {
         return employeeMapper.deleteEmployee(id);
     }
+
+    @Override
+    public Employee selectOne(String name, String nickname) {
+        return employeeMapper.selectWithParam(name,nickname);
+    }
 }
