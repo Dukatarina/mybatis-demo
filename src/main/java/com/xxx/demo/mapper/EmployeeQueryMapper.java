@@ -1,6 +1,7 @@
 package com.xxx.demo.mapper;
 
 import com.xxx.demo.pojo.Employee;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,5 +21,10 @@ public interface EmployeeQueryMapper {
     Employee selectWithMap(Map<String, String> map);
 
     List<Employee> employeesByNameLike(String nickName);
+
+    Map<String, Object> selectOneReturnColumn(String id);
+
+    @MapKey("id")
+    Map<String, Object> selectMoreReturnColumn(String nickname);
 
 }

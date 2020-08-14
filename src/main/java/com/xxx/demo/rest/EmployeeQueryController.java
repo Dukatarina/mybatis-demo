@@ -45,4 +45,12 @@ public class EmployeeQueryController {
     public ResponseEntity<List<Employee>> employeesByNameLike(@PathVariable String nickname) {
         return ResponseEntity.ok(employeeQueryService.employeesByNameLike( nickname));
     }
+    @GetMapping("/selectOneReturnColumn/{id}")
+    public ResponseEntity<Map<String,Object>> selectOneReturnColumn(@PathVariable String id){
+        return ResponseEntity.ok(employeeQueryService.selectOneReturnColumn(id));
+    }
+    @GetMapping("/selectMoreReturnColumn/{nickName}")
+    public ResponseEntity<Map<String,Object>> selectMoreReturnColumn(@PathVariable String nickName){
+        return ResponseEntity.ok(employeeQueryService.selectMoreReturnColumn(nickName));
+    }
 }

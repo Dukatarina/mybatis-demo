@@ -52,4 +52,13 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
     public List<Employee> employeesByNameLike(String nickname) {
         return employeeQueryMapper.employeesByNameLike("%"+nickname+"%");
     }
+    @Override
+    public Map<String, Object> selectOneReturnColumn(String id) {
+        return employeeQueryMapper.selectOneReturnColumn(id);
+    }
+
+    @Override
+    public Map<String, Object> selectMoreReturnColumn(String nickName) {
+        return employeeQueryMapper.selectMoreReturnColumn("%"+nickName+"%");
+    }
 }
