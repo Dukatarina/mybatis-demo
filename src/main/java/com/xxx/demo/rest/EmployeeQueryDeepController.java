@@ -19,4 +19,8 @@ public class EmployeeQueryDeepController {
     public ResponseEntity<Map<String,Object>> selectOneReturnColumn(@PathVariable String id){
         return ResponseEntity.ok(deepService.selectOneReturnColumn(id));
     }
+    @GetMapping("/selectMoreReturnColumn/{nickName}")
+    public ResponseEntity<Map<String,Object>> selectMoreReturnColumn(@PathVariable String nickName){
+        return ResponseEntity.ok(deepService.selectMoreReturnColumn(nickName));
+    }
 }

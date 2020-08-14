@@ -6,4 +6,6 @@ import java.util.Map;
 
 public interface EmployeeQueryDeepService {
     Map<String, Object> selectOneReturnColumn(String id);
+
+    Map<String, Object> selectMoreReturnColumn(String nickName);
 }

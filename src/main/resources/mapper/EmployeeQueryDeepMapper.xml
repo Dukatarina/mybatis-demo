@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxx.demo.mapper.EmployeeQueryDeepMapper">
-    <!--    com.xxx.demo.pojo.Employee-->
     <select id="selectOneReturnColumn" resultType="java.util.Map">
         select * from mybatis_employee where id=#{id}
+    </select>
+<!--    Map<String, Object> selectMoreReturnColumn(String nickname);-->
+    <select id="selectMoreReturnColumn" resultType="com.xxx.demo.pojo.Employee">
+         select * from mybatis_employee where nick_name like #{nickname}
     </select>
 </mapper>

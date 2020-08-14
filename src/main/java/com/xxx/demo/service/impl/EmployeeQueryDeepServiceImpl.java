@@ -18,4 +18,9 @@ public class EmployeeQueryDeepServiceImpl implements EmployeeQueryDeepService {
     public Map<String, Object> selectOneReturnColumn(String id) {
         return deepMapper.selectOneReturnColumn(id);
     }
+
+    @Override
+    public Map<String, Object> selectMoreReturnColumn(String nickName) {
+        return deepMapper.selectMoreReturnColumn("%"+nickName+"%");
+    }
 }
