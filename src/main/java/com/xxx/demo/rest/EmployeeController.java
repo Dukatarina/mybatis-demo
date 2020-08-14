@@ -16,14 +16,7 @@ public class EmployeeController {
         this.employeeServer = employeeServer;
     }
 
-    @GetMapping("/employee/{id}")
-    public ResponseEntity<Employee> employee(@PathVariable String id){
-        return ResponseEntity.ok(employeeServer.selectOne(id));
-    }
-    @GetMapping("/employee/{name}/{nickname}")
-    public ResponseEntity<Employee> employeeByName(@PathVariable String name,@PathVariable String nickname){
-        return ResponseEntity.ok(employeeServer.selectOne(name,nickname));
-    }
+
     @GetMapping("/employee/list")
     public ResponseEntity<List<Employee>> employeeList(){
         return ResponseEntity.ok(employeeServer.selectList());

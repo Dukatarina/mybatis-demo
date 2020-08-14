@@ -1,6 +1,7 @@
 package com.xxx.demo;
 
 import com.xxx.demo.mapper.EmployeeMapper;
+import com.xxx.demo.mapper.EmployeeQueryMapper;
 import com.xxx.demo.pojo.Employee;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
@@ -16,13 +17,14 @@ class MybatisDemoApplicationTests {
 
     @Test
     void contextLoads() {
-        Employee employee = sqlSession.selectOne("com.xxx.demo.mapper.EmployeeMapper.selectOne", "1");
+
+        Employee employee = sqlSession.selectOne("com.xxx.demo.mapper.EmployeeQueryMapper.selectOne", "1");
         System.out.println(employee);
     }
 
     @Test
     void contextLoad2() {
-        EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
+        EmployeeQueryMapper mapper = sqlSession.getMapper(EmployeeQueryMapper.class);
         Employee employee = mapper.selectOne("1");
         System.out.println(employee);
     }

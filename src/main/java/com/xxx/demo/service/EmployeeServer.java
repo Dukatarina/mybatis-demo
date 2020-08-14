@@ -5,7 +5,7 @@ import com.xxx.demo.pojo.Employee;
 import java.util.List;
 
 public interface EmployeeServer {
-    Employee selectOne(String id);
+
 
     List<Employee> selectList();
 
@@ -15,5 +15,4 @@ public interface EmployeeServer {
 
     Boolean deleteOne(String id);
 
-    Employee selectOne(String name, String nickname);
 }

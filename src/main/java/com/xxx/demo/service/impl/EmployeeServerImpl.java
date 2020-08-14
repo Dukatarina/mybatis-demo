@@ -15,10 +15,7 @@ public class EmployeeServerImpl implements EmployeeServer {
         this.employeeMapper = employeeMapper;
     }
 
-    @Override
-    public Employee selectOne(String id) {
-        return employeeMapper.selectOne(id);
-    }
+
 
     @Override
     public List<Employee> selectList() {
@@ -40,8 +37,4 @@ public class EmployeeServerImpl implements EmployeeServer {
         return employeeMapper.deleteEmployee(id);
     }
 
-    @Override
-    public Employee selectOne(String name, String nickname) {
-        return employeeMapper.selectWithParam(name,nickname);
-    }
 }

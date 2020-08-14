@@ -2,16 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxx.demo.mapper.EmployeeMapper">
 
-
-    <select id="selectOne" parameterType="java.lang.String" resultType="com.xxx.demo.pojo.Employee">
-       select * from mybatis_employee where id =#{id}
-    </select>
-    <!--多个参数时 map中 key的值为 param1,param2...paramN-->
-    <select id="selectWithParam" parameterType="java.lang.String" resultType="com.xxx.demo.pojo.Employee">
-       select * from mybatis_employee where name=#{param1} and nick_name=#{param2}
-    </select>
-
-
     <delete id="deleteEmployee" parameterType="java.lang.String">
     delete from mybatis_employee
     where id = #{id,jdbcType=VARCHAR}
