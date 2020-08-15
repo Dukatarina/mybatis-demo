@@ -19,4 +19,22 @@ public class DynamicQueryServiceImpl implements DynamicQueryService {
     public List<Employee> queryConditions(Employee employee) {
         return mapper.queryConditions(employee);
     }
+    @Override
+    public List<Employee> queryConditionsTrim(Employee employee) {
+        return mapper.queryConditionsTrim(employee);
+    }
+    @Override
+    public List<Employee> queryConditionsChoose(Employee employee) {
+        return mapper.queryConditionsChoose(employee);
+    }
+    @Override
+    public List<Employee> queryConditionsForeach(List<String> ids) {
+        return mapper.queryConditionsForeach(ids);
+    }
+    @Override
+   public Long insertEmployeeBatch(List<Employee> employees){
+       return mapper.insertEmployeeBatch(employees);
+   }
+
+
 }

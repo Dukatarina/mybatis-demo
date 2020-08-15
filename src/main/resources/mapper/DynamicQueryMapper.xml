@@ -6,10 +6,60 @@
     <!--方式二 -->
     <!--    select * from mybatis_employee where id like concat('%',#{id},'%')-->
     <select id="queryConditions" resultType="com.xxx.demo.pojo.Employee">
-        select * from mybatis_employee where 1=1
-        <if test="id != null">
-           and id =#{id}
-        </if>
-
+        select * from mybatis_employee
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="email != null  and email != ''">
+                and email like "%"#{email}"%"
+            </if>
+            <if test="nickName != null and nickName != ''">
+                and nick_name like "%"#{nickName}"%"
+            </if>
+        </where>
     </select>
+    <select id="queryConditionsTrim" resultType="com.xxx.demo.pojo.Employee">
+        select * from mybatis_employee
+        <trim prefix="where" suffixOverrides="and">
+            <if test="id != null">
+                id = #{id} and
+            </if>
+            <if test="name != null and name != ''">
+                name like "%"#{name}"%" and
+            </if>
+            <if test="email != null  and email != ''">
+                email like "%"#{email}"%" and
+            </if>
+            <if test="nickName != null and nickName != ''">
+                nick_name like "%"#{nickName}"%" and
+            </if>
+        </trim>
+    </select>
+    <select id="queryConditionsChoose" resultType="com.xxx.demo.pojo.Employee">
+        select * from mybatis_employee
+        <where>
+            <choose>
+                <when test="id != null">id = #{id}</when>
+                <when test="name != null">name like "%"#{name}"%"</when>
+                <when test="nickName != null">nick_name like "%"#{nickName}"%"</when>
+                <otherwise>1=1</otherwise>
+            </choose>
+        </where>
+    </select>
+    <select id="queryConditionsForeach" resultType="com.xxx.demo.pojo.Employee">
+        select * from mybatis_employee where id in
+            <foreach collection="ids" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+    </select>
+    <insert id="insertEmployeeBatch">
+        insert into mybatis_employee (`id`, `name`, `age`, `email`, `nick_name`, `d_id`) values
+        <foreach collection="employees" item="emp"  separator=",">
+            (#{emp.id},#{emp.name},#{emp.age},#{emp.email},#{emp.nickName},#{emp.dId})
+        </foreach>
+    </insert>
 </mapper>
