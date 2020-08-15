@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface EmployeeServer {
 
-
     List<Employee> selectList();
 
     Boolean update(Employee employee);
