@@ -20,6 +20,6 @@
         SELECT
         e.*,d.id as deptId ,dept_name deptName
         from mybatis_dept d LEFT JOIN mybatis_employee e on
-        d.id =e.id where d.id=#{id}
+        d.id =e.d_id where d.id=#{id}
     </select>
 </mapper>

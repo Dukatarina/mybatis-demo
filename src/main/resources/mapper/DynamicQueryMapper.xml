@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.demo.mapper.DynamicQueryMapper">
+    <!--方式一 -->
+    <!--    select * from mybatis_employee where id like "%"#{id}"%"-->
+    <!--方式二 -->
+    <!--    select * from mybatis_employee where id like concat('%',#{id},'%')-->
+    <select id="queryConditions" resultType="com.xxx.demo.pojo.Employee">
+        select * from mybatis_employee where 1=1
+        <if test="id != null">
+           and id =#{id}
+        </if>
+
+    </select>
+</mapper>

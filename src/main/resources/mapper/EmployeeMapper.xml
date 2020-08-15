@@ -9,9 +9,9 @@
     <!-- useGeneratedKeys="true" keyProperty="id" 自增id时使用-->
     <insert id="insertEmployee" parameterType="com.xxx.demo.pojo.Employee" >
     insert into mybatis_employee (id, name, age,
-      email, nick_name)
+      email, nick_name,d_id)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
-      #{email,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR})
+      #{email,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{dId,jdbcType=INTEGER})
     </insert>
 
     <update id="UpdateEmployee" parameterType="com.xxx.demo.pojo.Employee">
@@ -28,6 +28,9 @@
             </if>
             <if test="nickName != null">
                 nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="dId != null">
+                d_id = #{dId,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=VARCHAR}
