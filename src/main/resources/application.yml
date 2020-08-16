@@ -42,6 +42,7 @@ mybatis:
   type-aliases-package: com.xxx.demo.pojo
   configuration:
     map-underscore-to-camel-case: true
+    cache-enabled: true
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 logging:
   level:

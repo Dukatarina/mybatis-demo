@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxx.demo.mapper.EmployeeMapper">
 
+    <cache-ref namespace="com.xxx.demo.mapper.DeptMapper"/>
+    <cache></cache>
     <delete id="deleteEmployee" parameterType="java.lang.String">
     delete from mybatis_employee
     where id = #{id,jdbcType=VARCHAR}
