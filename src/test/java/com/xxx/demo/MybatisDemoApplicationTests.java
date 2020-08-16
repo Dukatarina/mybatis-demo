@@ -10,13 +10,22 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 @SpringBootTest
 class MybatisDemoApplicationTests {
     @Autowired
     private SqlSession sqlSession;
-
+    @Autowired
+    private DataSource dataSource;
+@Test
+void dataSourceTest() throws SQLException {
+    Connection connection = dataSource.getConnection();
+    System.out.println(connection);
+}
     @Test
     void contextLoads() {
 
