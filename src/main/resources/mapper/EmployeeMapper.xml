@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.demo.mapper.EmployeeMapper">
+
+    <cache-ref namespace="com.xxx.demo.mapper.DeptMapper"/>
+    <cache></cache>
+    <delete id="deleteEmployee" parameterType="java.lang.String">
+    delete from mybatis_employee
+    where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <!-- useGeneratedKeys="true" keyProperty="id" 自增id时使用-->
+    <insert id="insertEmployee" parameterType="com.xxx.demo.pojo.Employee" >
+    insert into mybatis_employee (id, name, age,
+      email, nick_name,d_id)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+      #{email,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{dId,jdbcType=INTEGER})
+    </insert>
+
+    <update id="UpdateEmployee" parameterType="com.xxx.demo.pojo.Employee">
+        update mybatis_employee
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="dId != null">
+                d_id = #{dId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

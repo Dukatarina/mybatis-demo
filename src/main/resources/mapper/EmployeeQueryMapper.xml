@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.demo.mapper.EmployeeQueryMapper">
+
+    <select id="selectOne" parameterType="java.lang.String" resultType="com.xxx.demo.pojo.Employee">
+       select * from mybatis_employee where id =#{id}
+    </select>
+    <!--多个参数时 map中 key的值为 param1,param2...paramN-->
+    <select id="selectWithParam" parameterType="java.lang.String" resultType="com.xxx.demo.pojo.Employee">
+       select * from mybatis_employee where name=#{param1} and nick_name=#{param2}
+    </select>
+    <select id="selectWithParam2" parameterType="java.lang.String" resultType="com.xxx.demo.pojo.Employee">
+       select * from mybatis_employee where name=#{name} and nick_name=#{nickName}
+    </select>
+
+    <select id="selectWithEntity" parameterType="com.xxx.demo.pojo.Employee" resultType="com.xxx.demo.pojo.Employee">
+       select * from mybatis_employee where name=#{name} and nick_name=#{nickName}
+    </select>
+    <select id="selectWithMap" parameterType="java.util.Map" resultType="com.xxx.demo.pojo.Employee">
+       select * from mybatis_employee where name=#{name} and nick_name=#{nickName}
+    </select>
+    <select id="employeesByNameLike" resultType="com.xxx.demo.pojo.Employee">
+        select * from mybatis_employee where nick_name like #{nickName}
+    </select>
+
+    <select id="selectOneReturnColumn" resultType="java.util.Map">
+        select * from mybatis_employee where id=#{id}
+    </select>
+    <!--    Map<String, Object> selectMoreReturnColumn(String nickname);-->
+    <select id="selectMoreReturnColumn" resultType="com.xxx.demo.pojo.Employee">
+         select * from mybatis_employee where nick_name like #{nickname}
+    </select>
+</mapper>
