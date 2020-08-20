@@ -32,7 +32,6 @@ public class EmployeeServerImpl implements EmployeeServer {
     @Override
     public Integer insertOne(Employee employee) {
         Integer i=employeeMapper.insertEmployee(employee);
-        int a=5/0;
         return i;
     }
 
